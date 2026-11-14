@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rizvanimansuri.github.io/resume/sitemap.xml
