@@ -17,7 +17,8 @@
 <style>
 :root{--ink:#16121f;--bg:#f2efff;--pk:#ff5c8a;--yl:#ffd84d;--mt:#43e0a8;--bl:#6f9bff;--og:#ff9248;--sh:5px 5px 0 var(--ink);--d:Syne,"Arial Black",Arial,sans-serif;--b:Manrope,"Segoe UI",Arial,sans-serif;--m:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
+html{scroll-behavior:smooth;scroll-padding-top:90px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img,svg{max-width:100%}
 body{font:500 1.05rem/1.65 var(--b);color:var(--ink);background:var(--bg) radial-gradient(rgba(22,18,31,.14) 1.4px,transparent 1.6px) 0 0/26px 26px;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:3px solid var(--pk);outline-offset:3px}
@@ -25,7 +26,7 @@ a{color:inherit;text-decoration:none}
 h1,h2,h3{font-family:var(--d);line-height:1.02;letter-spacing:-.02em}
 #pg{position:fixed;top:0;left:0;height:7px;width:0;z-index:100;background:repeating-linear-gradient(45deg,var(--pk) 0 10px,var(--yl) 10px 20px);border-bottom:2px solid var(--ink)}
 .card{background:#fff;border:3px solid var(--ink);border-radius:22px;box-shadow:var(--sh)}
-.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border:3px solid var(--ink);border-radius:999px;background:#fff;font:800 .95rem var(--b);box-shadow:4px 4px 0 var(--ink);cursor:pointer;transition:transform .15s,box-shadow .15s;color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border:3px solid var(--ink);border-radius:999px;background:#fff;font:800 .95rem var(--b);box-shadow:4px 4px 0 var(--ink);cursor:pointer;transition:transform .15s,box-shadow .15s;color:var(--ink);max-width:100%;overflow-wrap:anywhere;text-align:center;justify-content:center}
 .btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
 .btn.pk{background:var(--pk)}.btn.yl{background:var(--yl)}.btn.gr{background:#3fe08a}.btn.bl{background:var(--bl)}
 header{position:fixed;top:16px;left:0;right:0;z-index:90;display:flex;justify-content:center;padding:0 14px;pointer-events:none}
@@ -81,7 +82,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;margin:16px 0 14px;max-width
 .st{padding:20px 26px;display:flex;align-items:center;gap:18px}.st:nth-child(1){background:var(--mt);rotate:-2deg}.st:nth-child(2){background:var(--pk);rotate:1.5deg;margin-left:30px}.st:nth-child(3){background:var(--bl);rotate:-1deg}
 .st b{font:800 3rem var(--d);line-height:1}.st span{font-weight:700}
 /* skills */
-.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px}
 .pn{overflow:hidden}.pn h3{font-size:1.1rem;padding:12px 18px;border-bottom:3px solid var(--ink);background:var(--c)}
 .tl{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:12px;padding:18px}
 .tile{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 6px 10px;border:3px solid var(--ink);border-radius:16px;background:var(--bg);text-align:center;font-weight:800;font-size:.8rem;line-height:1.2;transition:transform .2s,background .2s,box-shadow .2s}
@@ -98,7 +99,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;margin:16px 0 14px;max-width
 .dt{font:500 .8rem var(--m);background:#fff;border:3px solid var(--ink);border-radius:999px;padding:5px 14px;white-space:nowrap}
 .job ul{margin:14px 0 0 1.2rem;max-width:80ch}.job li{margin-bottom:5px}
 /* websites */
-.wg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px}
+.wg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:26px}
 .site{display:block;overflow:hidden;transition:transform .25s,box-shadow .25s}
 .site:nth-child(odd){rotate:-1.2deg}.site:nth-child(even){rotate:1.2deg}
 .site:hover{rotate:0deg;transform:translateY(-8px);box-shadow:9px 9px 0 var(--ink)}
@@ -107,10 +108,10 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;margin:16px 0 14px;max-width
 .site .i{padding:16px 18px 18px}.site h3{font-size:1.25rem}.site p{font-size:.92rem;margin-top:4px}
 .site small{display:inline-block;margin-top:10px;font:500 .75rem var(--m);background:var(--yl);border:2px solid var(--ink);border-radius:8px;padding:2px 9px}
 /* process, edu */
-.pr{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;counter-reset:s}
+.pr{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:22px;counter-reset:s}
 .pr .card{padding:24px;position:relative}.pr .card::before{counter-increment:s;content:counter(s);position:absolute;right:16px;top:8px;font:800 3.4rem var(--d);opacity:.14}
 .pr h3{font-size:1.3rem;margin-bottom:6px}
-.ed{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}.ed .card{padding:22px}.ed small{font:500 .8rem var(--m)}.ed h3{font-size:1.2rem;margin:6px 0}
+.ed{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:22px}.ed .card{padding:22px}.ed small{font:500 .8rem var(--m)}.ed h3{font-size:1.2rem;margin:6px 0}
 /* contact */
 .ct{background:var(--pk);border-block:3px solid var(--ink);padding:90px 0;position:relative;overflow:hidden}
 .ct h2{max-width:14ch;font-size:clamp(2.4rem,7vw,5.6rem)}.ct p{max-width:50ch;margin-bottom:28px;font-weight:700}
@@ -122,8 +123,30 @@ footer{background:var(--ink);color:#d9d4ee;padding:26px 0;text-align:center;font
 .live{position:absolute;left:-9999px}
 .rv{opacity:0;transform:translateY(46px) scale(.95);transition:opacity .6s,transform .8s cubic-bezier(.34,1.56,.64,1);transition-delay:calc(var(--i,0)*80ms)}.rv.in{opacity:1;transform:none}
 .nojs .rv{opacity:1;transform:none}
-@media (max-width:900px){.hg,.about{grid-template-columns:1fr}.stage{min-height:400px}.job{position:relative;top:auto}}
-@media (max-width:760px){.nl{position:absolute;top:70px;left:14px;right:14px;flex-direction:column;align-items:stretch;background:#fff;border:3px solid var(--ink);border-radius:24px;box-shadow:var(--sh);padding:8px;display:none}.nl.open{display:flex}.nl .btn{margin:6px 0 0;justify-content:center}#mb{display:block}nav{justify-content:space-between;width:100%}.hero{padding-top:120px}section{padding:60px 0}.badge{width:110px;height:110px;right:0}.st:nth-child(2){margin-left:0}}
+@media (max-width:1000px){.nl a{padding:8px 11px}.logo{margin-right:6px}}
+@media (max-width:900px){.hg,.about{grid-template-columns:1fr}.stage{min-height:400px;max-width:560px;width:100%;margin:0 auto}.job{position:relative;top:auto}h2{max-width:none}}
+@media (max-width:860px){.nl{position:absolute;top:70px;left:14px;right:14px;flex-direction:column;align-items:stretch;background:#fff;border:3px solid var(--ink);border-radius:24px;box-shadow:var(--sh);padding:8px;display:none}.nl.open{display:flex}.nl .btn{margin:6px 0 0;justify-content:center}#mb{display:block}nav{justify-content:space-between;width:100%}.hero{padding-top:120px}section{padding:60px 0}.badge{width:110px;height:110px;right:0}.st:nth-child(2){margin-left:0}}
+@media (max-width:600px){
+.w{padding:0 18px}
+.hero{padding:105px 0 40px}
+.lead{margin:14px 0 22px}
+.row .btn{flex:1 1 100%}
+.stage{min-height:340px}
+.win{top:40px;left:0;width:100%}
+.win pre{font-size:.7rem;padding:14px}
+.stk{width:62px;height:62px;border-radius:18px}.stk img{width:36px;height:36px}.stk b{font-size:1.2rem}
+.badge{width:92px;height:92px;top:-24px}.badge b{font-size:1.4rem}
+.mq{margin:20px -30px}.tr span{font-size:1rem}
+.st{padding:16px 18px}.st b{font-size:2.3rem}
+.job{padding:20px 18px}.job h3{font-size:1.25rem}
+.site .v{height:120px;font-size:2.1rem}
+.ct{padding:64px 0}
+.ct .d1{width:80px;height:80px;right:-10px}
+.eb{font-size:.78rem}
+#wa{width:52px;height:52px;right:12px;bottom:12px;font-size:1.4rem}
+}
+@media (max-width:380px){body{font-size:1rem}.nl a{font-size:.85rem}nav{padding-left:14px}.logo{font-size:1rem}.win pre{font-size:.62rem}}
+@media (hover:none){.btn:hover,.site:hover,.tile:hover{transform:none;box-shadow:var(--sh)}.btn:hover{box-shadow:4px 4px 0 var(--ink)}.site:hover{rotate:0deg}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,h1 .ch{opacity:1!important;transform:none!important}.ln2{width:auto}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -189,13 +212,14 @@ footer{background:var(--ink);color:#d9d4ee;padding:26px 0;text-align:center;font
 <section id="websites"><div class="w">
 <span class="eb rv">websites</span><h2 class="rv">Sites I've built and maintained</h2><p class="sub rv">Company websites at System Level Solutions and product platforms from Radixweb.</p>
 <div class="wg">
-<a class="card site rv" href="https://slscorp.com" target="_blank" rel="noopener" style="--c:var(--bl)"><div class="v">SLS</div><div class="i"><h3>slscorp.com ↗</h3><p>Company website: development, updates and on-page SEO.</p><small>live site</small></div></a>
-<div class="card site rv" style="--c:var(--mt);--i:1"><div class="v">VM</div><div class="i"><h3>Verde Mobility</h3><p>EV charger manufacturer: website changes and updates.</p><small>company site</small></div></div>
-<div class="card site rv" style="--c:var(--pk);--i:2"><div class="v">AL</div><div class="i"><h3>Avartanam Labs</h3><p>Website development and ongoing changes.</p><small>company site</small></div></div>
-<div class="card site rv" style="--c:var(--yl);--i:3"><div class="v">NB</div><div class="i"><h3>Nebulae</h3><p>IoT hardware company: maintenance and updates.</p><small>company site</small></div></div>
-<div class="card site rv" style="--c:var(--og);--i:4"><div class="v">OPS</div><div class="i"><h3>OnPrintShop</h3><p>Front-end development and maintenance at Radixweb.</p><small>product platform</small></div></div>
-<div class="card site rv" style="--c:var(--mt);--i:5"><div class="v">ZT</div><div class="i"><h3>Zerothreat</h3><p>Responsive pages and landing pages from Figma designs.</p><small>product platform</small></div></div>
-<div class="card site rv" style="--c:var(--bl);--i:6"><div class="v">PX</div><div class="i"><h3>Picsy</h3><p>Front-end development with Strapi CMS content.</p><small>product platform</small></div></div>
+<a class="card site rv" href="https://www.slscorp.com/" target="_blank" rel="noopener" style="--c:var(--bl)"><div class="v">SLS</div><div class="i"><h3>slscorp.com ↗</h3><p>Company website: development, updates and on-page SEO.</p><small>live site</small></div></a>
+<a class="card site rv" href="https://www.verdemobility.com/" target="_blank" rel="noopener" style="--c:var(--mt);--i:1"><div class="v">VM</div><div class="i"><h3>Verde Mobility ↗</h3><p>EV charger manufacturer: website changes and updates.</p><small>live site</small></div></a>
+<a class="card site rv" href="https://avartanamlabs.com/" target="_blank" rel="noopener" style="--c:var(--pk);--i:2"><div class="v">AL</div><div class="i"><h3>Avartanam Labs ↗</h3><p>Website development and ongoing changes.</p><small>live site</small></div></a>
+<a class="card site rv" href="https://www.nebulae.io/" target="_blank" rel="noopener" style="--c:var(--yl);--i:3"><div class="v">NB</div><div class="i"><h3>Nebulae ↗</h3><p>IoT hardware company: maintenance and updates.</p><small>live site</small></div></a>
+<a class="card site rv" href="https://onprintshop.com/" target="_blank" rel="noopener" style="--c:var(--og);--i:4"><div class="v">OPS</div><div class="i"><h3>OnPrintShop ↗</h3><p>Front-end development and maintenance at Radixweb.</p><small>product platform</small></div></a>
+<a class="card site rv" href="https://zerothreat.ai/" target="_blank" rel="noopener" style="--c:var(--mt);--i:5"><div class="v">ZT</div><div class="i"><h3>Zerothreat ↗</h3><p>Responsive pages and landing pages from Figma designs.</p><small>product platform</small></div></a>
+<a class="card site rv" href="https://www.picsy.in/" target="_blank" rel="noopener" style="--c:var(--bl);--i:6"><div class="v">PX</div><div class="i"><h3>Picsy ↗</h3><p>Front-end development with Strapi CMS content.</p><small>product platform</small></div></a>
+<a class="card site rv" href="https://radixweb.com/" target="_blank" rel="noopener" style="--c:var(--pk);--i:7"><div class="v">RW</div><div class="i"><h3>Radixweb ↗</h3><p>Web design and front-end work as Associate Web Designer.</p><small>company site</small></div></a>
 </div></div></section>
 
 <section id="process"><div class="w">
@@ -241,7 +265,10 @@ var all=[];G.forEach(function(g){g[2].forEach(function(t){if(t.u||t.m)all.push(t
 $("#tr").innerHTML=all.concat(all).map(function(t){return"<span>"+(t.u?'<img src="'+t.u+'" alt="" onerror="this.remove()">':'<i class="mk" style="--m:url('+t.m+');--c:#fff;width:24px;height:24px;display:inline-block;background:var(--c);-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat"></i>')+t.n+"</span>"}).join("");
 // name letters
 var n=0;$$("#nm .ln").forEach(function(l){var host=l.querySelector(".mk")||l,t=host.textContent;host.innerHTML=t.split("").map(function(c){return'<span class="ch" style="--n:'+(n++)+'">'+c+"</span>"}).join("")});
-$("#mb").onclick=function(){$("#nl").classList.toggle("open")};$$("#nl a").forEach(function(a){a.onclick=function(){$("#nl").classList.remove("open")}});
+var mb=$("#mb");mb.setAttribute("aria-expanded","false");mb.setAttribute("aria-controls","nl");
+function tg(o){$("#nl").classList.toggle("open",o);mb.setAttribute("aria-expanded",o?"true":"false")}
+mb.onclick=function(){tg(!$("#nl").classList.contains("open"))};$$("#nl a").forEach(function(a){a.onclick=function(){tg(false)}});
+addEventListener("keydown",function(e){if(e.key==="Escape")tg(false)});addEventListener("resize",function(){if(innerWidth>860)tg(false)});
 $("#yr").textContent=new Date().getFullYear();
 // word swap
 var sw=$$("#sw span"),wi=0;if(!calm)setInterval(function(){var o=sw[wi];o.className="out";wi=(wi+1)%sw.length;var nx=sw[wi];nx.style.transition="none";nx.className="";nx.offsetHeight;nx.style.transition="";nx.className="on";setTimeout(function(){o.className="";o.style.transition="none";o.offsetHeight;o.style.transition=""},520)},2400);
