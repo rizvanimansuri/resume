@@ -17,9 +17,11 @@
 <style>
 :root{--ink:#16121f;--bg:#f2efff;--pk:#ff5c8a;--yl:#ffd84d;--mt:#43e0a8;--bl:#6f9bff;--og:#ff9248;--sh:5px 5px 0 var(--ink);--d:Syne,"Arial Black",Arial,sans-serif;--b:Manrope,"Segoe UI",Arial,sans-serif;--m:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:90px;-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:clip;max-width:100%}
 img,svg{max-width:100%}
-body{font:500 1.05rem/1.65 var(--b);color:var(--ink);background:var(--bg) radial-gradient(rgba(22,18,31,.14) 1.4px,transparent 1.6px) 0 0/26px 26px;overflow-x:hidden}
+body{font:500 1.05rem/1.65 var(--b);color:var(--ink);background:var(--bg) radial-gradient(rgba(22,18,31,.14) 1.4px,transparent 1.6px) 0 0/26px 26px;overflow-x:hidden;overflow-x:clip;max-width:100%}
+main{overflow-x:clip}
+.hg>*,.about>*{min-width:0}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:3px solid var(--pk);outline-offset:3px}
 .w{max-width:1160px;margin:0 auto;padding:0 24px}
@@ -41,7 +43,8 @@ nav{pointer-events:auto;display:flex;align-items:center;gap:6px;background:#fff;
 .hero{padding:150px 0 70px;position:relative}
 .hg{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
 .tag{display:inline-block;font:500 .85rem var(--m);background:var(--ink);color:var(--yl);padding:6px 14px;border-radius:10px;transform:rotate(-2deg)}
-h1{font-size:clamp(3rem,8.4vw,6.6rem);font-weight:800;margin:18px 0 14px;line-height:.95}
+h1{font-size:clamp(2.6rem,6vw,5rem);font-weight:800;margin:18px 0 14px;line-height:1;overflow-wrap:normal}
+h1 .ln{white-space:nowrap}
 h1 .ch{display:inline-block}.js h1 .ch{opacity:0;transform:translateY(60px) rotate(8deg) scale(.6);animation:pop .7s cubic-bezier(.34,1.56,.64,1) forwards;animation-delay:calc(var(--n)*55ms + .1s)}
 h1 .ln{display:block}h1 .mk{background:linear-gradient(transparent 62%,var(--yl) 62% 92%,transparent 92%);padding:0 .08em}
 @keyframes pop{to{opacity:1;transform:none}}
@@ -68,7 +71,7 @@ h1 .ln{display:block}h1 .mk{background:linear-gradient(transparent 62%,var(--yl)
 .deco{position:absolute;z-index:-1;border:3px solid var(--ink)}
 .d1{width:90px;height:90px;border-radius:50%;background:var(--mt);left:44%;top:120px}.d2{width:70px;height:70px;background:var(--pk);right:6%;bottom:60px;rotate:20deg;border-radius:18px}.d3{width:0;height:0;border:0;left:3%;bottom:30px;border-left:40px solid transparent;border-right:40px solid transparent;border-bottom:70px solid var(--bl)}
 /* marquee */
-.mq{background:var(--ink);color:#fff;transform:rotate(-1.6deg);margin:30px -20px;padding:16px 0;overflow:hidden;border-block:3px solid var(--ink)}
+.mq{background:var(--ink);color:#fff;transform:rotate(-1.6deg);margin:30px 0;max-width:100%;padding:16px 0;overflow:hidden;border-block:3px solid var(--ink)}
 .tr{display:flex;gap:46px;width:max-content;animation:mq 34s linear infinite}.mq:hover .tr{animation-play-state:paused}
 .tr span{display:inline-flex;align-items:center;gap:10px;font:800 1.15rem var(--d);white-space:nowrap}
 .tr img{width:28px;height:28px;background:#fff;border-radius:8px;padding:3px}
@@ -136,7 +139,7 @@ footer{background:var(--ink);color:#d9d4ee;padding:26px 0;text-align:center;font
 .win pre{font-size:.7rem;padding:14px}
 .stk{width:62px;height:62px;border-radius:18px}.stk img{width:36px;height:36px}.stk b{font-size:1.2rem}
 .badge{width:92px;height:92px;top:-24px}.badge b{font-size:1.4rem}
-.mq{margin:20px -30px}.tr span{font-size:1rem}
+.mq{margin:20px 0}.tr span{font-size:1rem}
 .st{padding:16px 18px}.st b{font-size:2.3rem}
 .job{padding:20px 18px}.job h3{font-size:1.25rem}
 .site .v{height:120px;font-size:2.1rem}
@@ -145,7 +148,7 @@ footer{background:var(--ink);color:#d9d4ee;padding:26px 0;text-align:center;font
 .eb{font-size:.78rem}
 #wa{width:52px;height:52px;right:12px;bottom:12px;font-size:1.4rem}
 }
-@media (max-width:380px){body{font-size:1rem}.nl a{font-size:.85rem}nav{padding-left:14px}.logo{font-size:1rem}.win pre{font-size:.62rem}}
+@media (max-width:380px){h1{font-size:2.5rem}body{font-size:1rem}.nl a{font-size:.85rem}nav{padding-left:14px}.logo{font-size:1rem}.win pre{font-size:.62rem}}
 @media (hover:none){.btn:hover,.site:hover,.tile:hover{transform:none;box-shadow:var(--sh)}.btn:hover{box-shadow:4px 4px 0 var(--ink)}.site:hover{rotate:0deg}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,h1 .ch{opacity:1!important;transform:none!important}.ln2{width:auto}html{scroll-behavior:auto}}
 </style>
